@@ -1,0 +1,107 @@
+{
+    "algo_args":	{
+        "algo":	{
+            "batch_size":	1000,
+            "buffer_size":	1000000,
+            "fixed_order":	false,
+            "gamma":	0.96,
+            "n_step":	1,
+            "policy_freq":	1,
+            "polyak":	0.01,
+            "use_policy_active_masks":	true
+        },
+        "device":	{
+            "cuda":	true,
+            "cuda_deterministic":	true,
+            "torch_threads":	4
+        },
+        "eval":	{
+            "eval_episodes":	8,
+            "n_eval_rollout_threads":	4,
+            "use_eval":	false
+        },
+        "logger":	{
+            "log_dir":	"./results",
+            "save_model":	true,
+            "wandb":	false
+        },
+        "model":	{
+            "activation_func":	"relu",
+            "critic_lr":	0.0005,
+            "entropy_coef":	0.0001,
+            "final_activation_func":	"tanh",
+            "gain":	0.01,
+            "hidden_sizes":	[
+                256,
+                256
+            ],
+            "initialization_method":	"orthogonal_",
+            "log_std_max":	2,
+            "log_std_min":	-10,
+            "lr":	0.0005,
+            "use_feature_normalization":	true
+        },
+        "plan":	{
+            "horizon":	1,
+            "iterations":	6,
+            "max_std":	2.0,
+            "min_std":	0.05,
+            "mode":	"seq",
+            "num_elites":	64,
+            "num_pi_trajs":	32,
+            "num_samples":	512,
+            "temperature":	0.5,
+            "use_plan":	true
+        },
+        "render":	{
+            "render_episodes":	10,
+            "use_render":	false
+        },
+        "seed":	{
+            "seed":	1,
+            "seed_specify":	true
+        },
+        "train":	{
+            "episode_length":	125,
+            "eval_interval":	10000,
+            "log_interval":	1000,
+            "model_dir":	null,
+            "n_rollout_threads":	4,
+            "num_env_steps":	4000000,
+            "save_interval":	50000,
+            "train_interval":	1,
+            "update_per_train":	1,
+            "use_linear_lr_decay":	false,
+            "use_proper_time_limits":	true,
+            "use_valuenorm":	false,
+            "warmup_steps":	50000
+        },
+        "world_model":	{
+            "dynamics_coef":	20,
+            "enc_lr_scale":	0.3,
+            "latent_dim":	512,
+            "num_bins":	101,
+            "num_enc_layers":	1,
+            "q_coef":	0.1,
+            "reward_coef":	0.1,
+            "reward_max":	10,
+            "reward_min":	-10,
+            "scale_tau":	0.01,
+            "simnorm_dim":	8,
+            "step_rho":	0.5,
+            "use_twohot":	true,
+            "warmup_train":	true,
+            "wt_steps":	2500
+        }
+    },
+    "env_args":	{
+        "hands_episode_length":	125,
+        "task":	"ShadowHandBottleCap"
+    },
+    "main_args":	{
+        "algo":	"seqwm",
+        "env":	"dexhands",
+        "exp_name":	"installtest",
+        "load_config":	"configs/dexhands/ShadowHandBottleCap/seqwm/config.json"
+    }
+}

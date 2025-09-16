@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<robot name="sheep">
+
+  <material name="white">    
+      <color rgba="0.7 0.7 0.7 1.0"/>  
+  </material>
+  <material name="black">    
+      <color rgba="0.5 0.5 0.5 0.0"/>  
+  
+  </material>
+  <link name="base">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="1 1 0.03"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="1 1 0.03"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <link name="seesaw">
+    <visual>
+      <origin xyz="-0.1031 0 0"/>
+      <geometry>
+        <box size="4.123 1 0.03"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.1031 0 0"/>
+      <geometry>
+        <box size="4.123 1 0.03"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="100"/>
+      <inertia ixx="100" ixy="0.0" ixz="0.0" iyy="100" iyz="0.0" izz="100"/>
+    </inertial>
+  </link>
+  <joint name="link" type="revolute">
+    <origin xyz="-2.4 0 -0.455" rpy="0 0 0"/>
+    <parent link="base"/>
+    <child link="seesaw"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <limit effort="0" velocity="0.2"/>
+  </joint>
+  
+  <link name="shaft_r">
+    <visual>
+      <origin xyz="0 -0.5 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.2" length="0.05"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+  <joint name="shaft_r link" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="seesaw"/>
+    <child link="shaft_r"/>
+    <axis xyz="0.0 1.0 0.0"/>
+  </joint>
+  
+  <link name="shaft_l">
+    <visual>
+      <origin xyz="0 0.5 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.2" length="0.05"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+  <joint name="shaft_l link" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="seesaw"/>
+    <child link="shaft_l"/>
+    <axis xyz="0.0 1.0 0.0"/>
+  </joint>
+  
+  <link name="column">
+    <visual>
+      <origin xyz="0 0 -0.5"/>
+      <geometry>
+        <cylinder radius="0.15" length="1"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.5"/>
+      <geometry>
+        <cylinder radius="0.2" length="1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="column_mount" type="fixed">
+    <parent link="base"/>
+    <child link="column"/>
+  </joint>
+  
+</robot>
