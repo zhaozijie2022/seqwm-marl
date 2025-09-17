@@ -1,6 +1,6 @@
 # SeqWM: Empowering Multi-Robot Cooperation via Sequential World Models
 
-The official implementation of the paper [Empowering Multi-Robot Cooperation via Sequential World Models](https://arxiv.org).
+The official implementation of the paper [Empowering Multi-Robot Cooperation via Sequential World Models](https://https://arxiv.org/abs/2509.13095).
 
 ---
 ## Overview
@@ -76,9 +76,12 @@ If you find our research helpful and would like to reference it in your work, pl
 
 ```bibtex
 @inproceedings{zhao2025seqwm,
-  title     = {Empowering Multi-Robot Cooperation via Sequential World Models},
-  author    = {Zhao, Zijie and Guo, Honglei and Chen, Shengqian and Xu, Kaixuan and Jiang, Bo and Zhu, Yuanheng and Zhao, Dongbin},
-  booktitle = {arXiv preprint},
-  year      = {2025}
+    title={Empowering Multi-Robot Cooperation via Sequential World Models}, 
+    author={Zijie Zhao and Honglei Guo and Shengqian Chen and Kaixuan Xu and Bo Jiang and Yuanheng Zhu and Dongbin Zhao},
+    year={2025},
+    eprint={2509.13095},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO},
+    url={https://arxiv.org/abs/2509.13095}, 
 }
 ```
